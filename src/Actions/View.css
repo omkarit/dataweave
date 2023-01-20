@@ -1,0 +1,32 @@
+.main-table{
+    width: 100vw;
+    height:100vh;
+    font-size: small;
+    margin-top: 5%;
+
+}
+.table{
+  width: 60%;
+  margin-left: 20%;
+}
+.pagination {
+    padding: 10px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pagination > span{
+    padding: 15px 20px;
+    border: 1px solid gray;
+    cursor: pointer;
+    font-size: small;
+  }
+  
+  .pagination__disable{
+    opacity: 0;
+  }
+  
+  .pagination__selected{
+    background-color: rgb(220, 220, 220);
+  }
