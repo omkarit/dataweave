@@ -4,8 +4,9 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { AiOutlineMenu } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import FiLogOut from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import "./Sidebar.css";
+import flower from "../assets/flower.png";
 const Sidebar = () => {
   const [show, setShow] = useState(false);
 
@@ -23,10 +24,13 @@ const Sidebar = () => {
               style={{ marginLeft: "-80px" }}
             />
           </Navbar.Brand>
+          <FiLogOut style={{ marginRight: "-30px" }} />
         </Container>
       </Navbar>
       <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton></Offcanvas.Header>
+        <Offcanvas.Header closeButton style={{ marginLeft: "20px" }}>
+          <img src={flower} />
+        </Offcanvas.Header>
         <Offcanvas.Body>
           <Offcanvas.Title>Dashboard</Offcanvas.Title>
         </Offcanvas.Body>

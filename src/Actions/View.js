@@ -63,26 +63,29 @@ const View = () => {
       return data.slice(page * 5 - 5, page * 5).map((item, index) => {
         const item_id = item.id;
         return (
-          <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.title}</td>
-            <td>{item.description}</td>
-            <td>{item.price}</td>
-            <td>{item.discountPercentage}</td>
-            <td>{item.rating}</td>
-            <td>{item.stock}</td>
-            <td>
-              {" "}
-              <Link
-                variant="primary"
-                onClick={() => {
-                  handleShow(item_id);
-                }}
-              >
-                Edit
-              </Link>
-            </td>
-          </tr>
+          <>
+            {" "}
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.title}</td>
+              <td>{item.description}</td>
+              <td>{item.price}</td>
+              <td>{item.discountPercentage}</td>
+              <td>{item.rating}</td>
+              <td>{item.stock}</td>
+              <td>
+                {" "}
+                <Link
+                  variant="primary"
+                  onClick={() => {
+                    handleShow(item_id);
+                  }}
+                >
+                  Edit
+                </Link>
+              </td>
+            </tr>
+          </>
         );
       });
     } else {
@@ -146,7 +149,31 @@ const View = () => {
           </Modal.Footer>
         </Form>
       </Modal>
-
+      <div
+        style={{
+          marginLeft: "20%",
+          width: "60%",
+          paddingLeft: "0px",
+          display: "flex",
+        }}
+      >
+        <h1>Product List</h1>
+        <div
+          style={{
+            display: "flex",
+            marginLeft: "auto",
+            alignItems: "center",
+          }}
+        >
+          <Button variant="success">Add Category</Button>
+          <Button variant="success" style={{ marginLeft: "5px" }}>
+            Import
+          </Button>
+          <Button variant="success" style={{ marginLeft: "5px" }}>
+            Export To Excel
+          </Button>
+        </div>
+      </div>
       <Table striped bordered hover className="table">
         <thead>
           <tr>
@@ -160,7 +187,17 @@ const View = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>{showData(data)}</tbody>
+        <tbody>
+          {/* <tr>
+            <td colSpan={7}>
+              <input type="text" />
+            </td>
+            <td>
+              <Button>Search</Button>
+            </td>
+          </tr> */}
+          {showData(data)}
+        </tbody>
       </Table>
       {data.length > 0 && (
         <div className="pagination">
